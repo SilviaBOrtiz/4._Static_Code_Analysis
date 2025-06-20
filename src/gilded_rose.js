@@ -4,7 +4,8 @@ function Item(name, sell_in, quality) {
   this.quality = quality;
 }
 
-const items = [];
+// eslint-disable-next-line prefer-const
+let items = [];
 
 items.push(new Item('+5 Dexterity Vest', 10, 20));
 items.push(new Item('Aged Brie', 2, 0));
