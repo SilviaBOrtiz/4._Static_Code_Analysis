@@ -4,7 +4,7 @@ function Item(name, sell_in, quality) {
   this.quality = quality;
 }
 
-var items = []
+const items = [];
 
 items.push(new Item('+5 Dexterity Vest', 10, 20));
 items.push(new Item('Aged Brie', 2, 0));
@@ -13,15 +13,16 @@ items.push(new Item('Sulfuras, Hand of Ragnaros', 0, 80));
 items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20));
 items.push(new Item('Conjured Mana Cake', 3, 6));
 
+// eslint-disable-next-line no-unused-vars
 function update_quality() {
-  for (let item of items) {
+  for (const item of items) {
     update_item(item);
   }
 }
 
 function update_item(item) {
   // "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
-  if (item.name == 'Sulfuras, Hand of Ragnaros') {
+  if (item.name === 'Sulfuras, Hand of Ragnaros') {
     return;
   }
 
@@ -41,7 +42,7 @@ function update_item(item) {
 }
 
 function get_degrade(item) {
-  if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
+  if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {
     if (item.sell_in >= 10) {
       return 1; // "Backstage passes", like aged brie, increases in Quality as it's SellIn value approaches
     } else if (item.sell_in >= 5) {
@@ -54,15 +55,15 @@ function get_degrade(item) {
   }
 
   // At the end of each day our system lowers both values for every item
-  var degrade = -1;
+  let degrade = -1;
 
   // "Aged Brie" actually increases in Quality the older it gets
-  if (item.name == 'Aged Brie') {
+  if (item.name === 'Aged Brie') {
     degrade *= -1;
   }
 
   // "Conjured" items degrade in Quality twice as fast as normal items
-  if (item.name == 'Conjured Mana Cake') {
+  if (item.name === 'Conjured Mana Cake') {
     degrade *= 2;
   }
 

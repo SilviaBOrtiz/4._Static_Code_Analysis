@@ -1,0 +1,13 @@
+{
+  "name": "gilded_rose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/gilded_rose.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint src/"
+  },
+  "devDependencies": {
+    "eslint": "^9.29.0"
+  }
+}
